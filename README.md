@@ -1,2 +1,3 @@
-# Coding-Test
-Coding Test prepared with C++
+**C++로 코딩테스트 준비**
+
+1. [C++ 사용 이유](./c++.md)
