@@ -350,4 +350,124 @@
        }
        ```
 
-       
+
+<br>
+
+7. 타입과 타입 변환
+
+   1. void
+
+      * 리턴하는 값이 없다.
+
+      * ```cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        int ret = 1;
+        
+        //함수를 선언할 때는, 항상 호출되는 위쪽 부분에 선언을 해야 한다.
+        void a() {
+            ret = 2;
+            cout << ret << "\n";
+            return;
+        }
+        
+        int main() {
+            a();
+            return 0;
+        }
+        ```
+
+      * ```cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        int ret = 1;
+        
+        //선언부와 정의부를 나눠도 되지만, 시간 낭비이므로 선언부와 정의부를 한꺼번에 하자.
+        void a();
+        
+        int main() {
+            a();
+            return 0;
+        }
+        
+        void a() {
+            ret = 2;
+            cout << ret << "\n";
+            return;
+        }
+        ```
+
+   2. char
+
+      * 작은 따옴표('')로 선언하며 1바이트의 크기를 가진다.
+
+      * ```cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        char b() {
+            char a = 'a';
+            return a;
+        }
+        
+        int main() {
+            char a = b();
+            cout << a << "\n";
+            return 0;
+        }
+        ```
+
+      * char를 초기화할 때 주의점
+
+      * 아무런 값을 할당하지 않으면 널문자('\0', NULL, 0)으로 초기화된다.
+
+      * 이때, 널문자는 문자열의 끝을 나타내며 "빈문자열"이 아니다.
+
+      * ```cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        int main() {
+            char a = '\0';
+            char b = 0;
+            char c = NULL;
+            string d = "";
+            cout << "hello";
+            if(a == b) cout << 1;
+            if(b == c) cout << 2;
+            //string(1, a): a를 담은 길이가 1인 문자열
+            //=> d는 빈 문자열이지만, a는 아니다.
+            if(string(1, a) == d) cout << 3;
+        
+            return 0;
+        }
+        ```
+
+   3. string
+
+      * char[]나 string으로 사용
+
+      * ```cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        int main() {
+          	//한글은 이상하게 출력
+          	//영어는 한 글자당 1바이트지만, 한글은 한 글자당 3바이트다.
+            string a = "나는야";
+            cout << a[0] << "\n";
+            cout << a[0] << a[1] << a[2] << "\n";
+            cout << a << "\n";
+        
+          	//영어는 제대로 출력
+            string b = "abc";
+            cout << b[0] << "\n";
+            cout << b << "\n";
+            
+            return 0;
+        }
+        ```
+
+      * string ㅁ
